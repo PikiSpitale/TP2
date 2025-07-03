@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/public/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="header">
+      <a href="/">
+        <img src="/public/logo.png" class="logo" alt="logo" width="256"
+      /></a>
+      <div class="pokedex">
+        <a href="/src/pages/pokedex.html">
+          <img
+            src="/public/pokedex.png"
+            class="logo"
+            alt="pokedex"
+            width="70"
+            height="100"
+            style="cursor: pointer"
+          />
+        </a>
+        <a href="/src/pages/pokedex.html" class="refPokedex">Pokedex</a>
+      </div>
+      <div class="filters">
+        <label
+          >Generación:
+          <select id="generation-filter">
+            <option value="all">Todas</option>
+            <option value="Generation 1" selected>Generación 1</option>
+            <option value="Generation 2">Generación 2</option>
+            <option value="Generation 3">Generación 3</option>
+            <option value="Generation 4">Generación 4</option>
+            <option value="Generation 5">Generación 5</option>
+            <option value="Generation 6">Generación 6</option>
+            <option value="Generation 7">Generación 7</option>
+            <option value="Generation 8">Generación 8</option>
+            <option value="Generation 9">Generación 9</option>
+          </select>
+        </label>
+        <label
+          >Tipo:
+          <select id="type-filter">
+            <option value="all">Todos</option>
+            <option value="Normal">Normal</option>
+            <option value="Fire">Fire</option>
+            <option value="Water">Water</option>
+            <option value="Grass">Grass</option>
+            <option value="Electric">Electric</option>
+            <option value="Ice">Ice</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Poison">Poison</option>
+            <option value="Ground">Ground</option>
+            <option value="Flying">Flying</option>
+            <option value="Psychic">Psychic</option>
+            <option value="Bug">Bug</option>
+            <option value="Rock">Rock</option>
+            <option value="Ghost">Ghost</option>
+            <option value="Dark">Dark</option>
+            <option value="Dragon">Dragon</option>
+            <option value="Steel">Steel</option>
+            <option value="Fairy">Fairy</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div id="cards-container" class="cards"></div>
+    <div id="pokemon-modal" class="modal" style="display: none">
+      <div class="modal-content" id="modal-content"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
