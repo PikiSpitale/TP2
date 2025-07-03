@@ -207,7 +207,7 @@ function renderPokemons(pokemons) {
   <p><strong>Tipos:</strong> ${pokemon.types
     .map((t) => t.type.name.charAt(0).toUpperCase() + t.type.name.slice(1))
     .join(", ")}</p>
-  <p><strong>Estadísticas minimas:</strong></p>
+  <p><strong>Estadísticas base:</strong></p>
   <ul>
     ${pokemon.stats
       .map(
