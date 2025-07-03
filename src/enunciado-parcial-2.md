@@ -59,7 +59,7 @@ El trabajo será evaluado según los siguientes criterios:
 - Interactividad y experiencia de usuario.
 - Organización, limpieza y comentarios en el código.
 - Manejo adecuado de errores y validaciones.
-- Creatividad y funcionalidades adicionales (extras).
+- Creatividad y funcionalidade s adicionales (extras).
 
 ### Fecha de entrega
 

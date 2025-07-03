@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/public/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Pikemon</title>
   </head>
   <body>
-    <div class="header">
+    <header class="header">
       <a href="/">
         <img src="/public/logo.png" class="logo" alt="logo" width="256"
       /></a>
       <div class="pokedex">
-        <a href="/src/pages/pokedex.html">
+        <a href="/nested/index.html">
           <img
             src="/public/pokedex.png"
             class="logo"
@@ -22,9 +22,22 @@
             style="cursor: pointer"
           />
         </a>
-        <a href="/src/pages/pokedex.html" class="refPokedex">Pokedex</a>
+        <a href="/nested/index.html" class="refPokedex">Pokedex</a>
       </div>
       <div class="filters">
+        <label
+          >Buscar:
+          <input type="text" id="search-input" placeholder="Buscar Pokémon" />
+        </label>
+        <label>
+          Ordenar por:
+          <select id="sort-filter">
+            <option value="id" selected>ID</option>
+            <option value="name">Nombre</option>
+            <option value="type">Tipo</option>
+            <option value="captured">Capturados</option>
+          </select>
+        </label>
         <label
           >Generación:
           <select id="generation-filter">
@@ -65,11 +78,34 @@
           </select>
         </label>
       </div>
-    </div>
+    </header>
+    <div id="captured"></div>
     <div id="cards-container" class="cards"></div>
     <div id="pokemon-modal" class="modal" style="display: none">
       <div class="modal-content" id="modal-content"></div>
     </div>
     <script type="module" src="/src/main.js"></script>
+    <footer class="footer">
+      <hr />
+      <div>
+        <img
+          src="/public/icon.png"
+          alt="Pokeball"
+          width="40"
+          style="vertical-align: middle; margin-right: 10px"
+        />
+        <span style="font-size: 1.3em; font-weight: bold">Pokédex App</span>
+      </div>
+      <div>
+        Hecho por
+        <a
+          href="https://github.com/PikiSpitale/"
+          target="_blank"
+          style="color: #4caf50; text-decoration: none"
+          >Agustin Spitale</a
+        >
+        &copy; 2025
+      </div>
+    </footer>
   </body>
 </html>

@@ -209,7 +209,58 @@ body.modal-open {
   overflow: hidden;
 }
 
+.filters {
+  gap: 20px;
+}
+
+.filters input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+
+.footer {
+  width: 100%;
+  padding: 10px 0 10px 0;
+  text-align: center;
+  background-color: #1a1a1a;
+  color: #888;
+  position: relative;
+}
+
+.footer a {
+  color: #888;
+  text-decoration: none;
+}
+
+.footer-content {
+  margin: 20px;
+  font-size: 14px;
+}
+
 /* ---------------------------------------------- */
+@media screen and (max-width: 1300px) {
+  .cards {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .header {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filters {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filters select,
+  .filters input {
+    width: 100%;
+    max-width: 300px;
+  }
+}
 
 @media (prefers-color-scheme: light) {
   :root {

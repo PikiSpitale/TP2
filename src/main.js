@@ -1,6 +1,7 @@
 import "./style.css";
 
 const container = document.getElementById("cards-container");
+const captured = document.getElementById("captured");
 let allPokemons = [];
 
 function getGeneration(id) {
@@ -19,8 +20,9 @@ function getGeneration(id) {
 function applyFilters() {
   const generation = document.getElementById("generation-filter").value;
   const type = document.getElementById("type-filter").value;
+  const search = document.getElementById("search-input").value.toLowerCase();
+  const sort = document.getElementById("sort-filter").value;
   let filtered = allPokemons;
-
   if (generation !== "all") {
     filtered = filtered.filter((p) => getGeneration(p.id) === generation);
   }
@@ -29,8 +31,40 @@ function applyFilters() {
       p.types.find((t) => t.type.name.toLowerCase() === type.toLowerCase())
     );
   }
+  if (search !== "") {
+    filtered = filtered.filter(
+      (p) =>
+        p.name.toLowerCase().includes(search) ||
+        p.id.toString().includes(search)
+    );
+  }
+
+  if (sort === "id") {
+    filtered.sort((a, b) => a.id - b.id);
+  } else if (sort === "name") {
+    filtered.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sort === "type") {
+    filtered.sort((a, b) =>
+      a.types[0]?.type.name.localeCompare(b.types[0]?.type.name)
+    );
+  } else if (sort === "captured") {
+    const capturedIds = getCaptured();
+    filtered.sort((a, b) => {
+      const aCaptured = capturedIds.includes(a.id) ? 1 : 0;
+      const bCaptured = capturedIds.includes(b.id) ? 1 : 0;
+      return bCaptured - aCaptured || a.id - b.id;
+    });
+  }
+
   renderPokemons(filtered);
 }
+
+document.getElementById("search-input").addEventListener("input", applyFilters);
+document.getElementById("sort-filter").addEventListener("change", applyFilters);
+document
+  .getElementById("generation-filter")
+  .addEventListener("change", applyFilters);
+document.getElementById("type-filter").addEventListener("change", applyFilters);
 
 function getCaptured() {
   return JSON.parse(localStorage.getItem("capturedPokemons") || "[]");
@@ -70,11 +104,6 @@ async function fetchAndShowAllPokemons() {
     container.innerHTML = `<p style="color:red;">${err.message}</p>`;
   }
 }
-
-document
-  .getElementById("generation-filter")
-  .addEventListener("change", applyFilters);
-document.getElementById("type-filter").addEventListener("change", applyFilters);
 
 async function pokemonColor(pokemon) {
   const res = await fetch(
@@ -215,11 +244,12 @@ function renderPokemons(pokemons) {
         capturePokemon(id);
         btn.textContent = "Liberar";
       }
-      applyFilters(allPokemons);
+      applyFilters();
     };
+
+    const count = getCaptured().length;
+    captured.innerHTML = `<h2>Capturados: (${count}/1025)</h2>`;
   });
 }
-
-const sprite = document.getElementById("sprite");
 
 fetchAndShowAllPokemons();

@@ -1,7 +1,8 @@
-import "../style.css";
+import "../src/style.css";
 import "./pokedexstyle.css";
 
 const sprite = document.getElementById("sprite");
+const captured = document.getElementById("captured");
 let allPokemons = [];
 
 function getCaptured() {
@@ -18,7 +19,7 @@ function showAllSprites(pokemons) {
       <img src="${pokemon.sprites.front_default}" alt="${
         pokemon.name
       }" width="120" height="120"
-        style="margin: 0 auto; display: block; -webkit-user-drag: none; 
+        style="margin: 0 auto; display: block; -webkit-user-drag: none;
         ${
           isCaptured(pokemon.id)
             ? ""
@@ -28,6 +29,8 @@ function showAllSprites(pokemons) {
     `
     )
     .join("");
+  const count = getCaptured().length;
+  captured.innerHTML = `<h2>Capturados: (${count}/1025)</h2>`;
 }
 
 async function fetchAndShowAllPokemons() {

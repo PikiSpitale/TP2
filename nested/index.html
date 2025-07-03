@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/public/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pikemon</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="/">
+        <img src="/public/logo.png" class="logo" alt="logo" width="256"
+      /></a>
+      <div id="captured"></div>
+      <div class="pokedex">
+        <a href="/nested/index.html">
+          <img
+            src="/public/pokedex.png"
+            class="logo"
+            alt="pokedex"
+            width="70"
+            height="100"
+            style="cursor: pointer"
+          />
+        </a>
+        <a href="/nested/index.html" class="refPokedex">Pokedex</a>
+      </div>
+    </header>
+    <div id="sprite" class="sprite"></div>
+    <footer class="footer">
+      <hr />
+      <div>
+        <img
+          src="/public/icon.png"
+          alt="Pokeball"
+          width="40"
+          style="vertical-align: middle; margin-right: 10px"
+        />
+        <span style="font-size: 1.3em; font-weight: bold">Pokédex App</span>
+      </div>
+      <div>
+        Hecho por
+        <a
+          href="https://github.com/PikiSpitale/"
+          target="_blank"
+          style="color: #4caf50; text-decoration: none"
+          >Agustin Spitale</a
+        >
+        &copy; 2025
+      </div>
+    </footer>
+    <script type="module" src="/nested/nested.js"></script>
+  </body>
+</html>
