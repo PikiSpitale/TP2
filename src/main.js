@@ -56,6 +56,8 @@ function applyFilters() {
     });
   }
 
+  const count = getCaptured().length;
+  captured.innerHTML = `<h2>Capturados: (${count}/${filtered.length})</h2>`;
   renderPokemons(filtered);
 }
 
@@ -205,10 +207,15 @@ function renderPokemons(pokemons) {
   <p><strong>Tipos:</strong> ${pokemon.types
     .map((t) => t.type.name.charAt(0).toUpperCase() + t.type.name.slice(1))
     .join(", ")}</p>
-  <p><strong>Estadísticas:</strong></p>
+  <p><strong>Estadísticas minimas:</strong></p>
   <ul>
     ${pokemon.stats
-      .map((stat) => `<li>${stat.stat.name}: ${stat.base_stat}</li>`)
+      .map(
+        (stat) =>
+          `<li>${
+            stat.stat.name.charAt(0).toUpperCase() + stat.stat.name.slice(1)
+          }: ${stat.base_stat}</li>`
+      )
       .join("")}
   </ul>
 `;
@@ -246,9 +253,6 @@ function renderPokemons(pokemons) {
       }
       applyFilters();
     };
-
-    const count = getCaptured().length;
-    captured.innerHTML = `<h2>Capturados: (${count}/1025)</h2>`;
   });
 }
 

@@ -1,5 +1,4 @@
 import "../src/style.css";
-import "./pokedexstyle.css";
 
 const sprite = document.getElementById("sprite");
 const captured = document.getElementById("captured");

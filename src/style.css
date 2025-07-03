@@ -240,6 +240,13 @@ body.modal-open {
   font-size: 14px;
 }
 
+.sprite {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+}
+
 /* ---------------------------------------------- */
 @media screen and (max-width: 1300px) {
   .cards {
